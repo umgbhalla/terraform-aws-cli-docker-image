@@ -11,7 +11,7 @@ RUN apt-get update
 RUN apt-get install --no-install-recommends -y curl=7.74.0-1.3+deb11u1
 RUN apt-get install --no-install-recommends -y ca-certificates=20210119
 RUN apt-get install --no-install-recommends -y unzip=6.0-26
-RUN apt-get install --no-install-recommends -y gnupg=2.2.27-2
+RUN apt-get install --no-install-recommends -y gnupg=2.2.27-2+deb11u2
 WORKDIR /workspace
 RUN curl -Os https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_SHA256SUMS
 RUN curl -Os https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip
@@ -29,7 +29,7 @@ ARG AWS_CLI_VERSION
 ARG PYTHON_MAJOR_VERSION
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends python3=${PYTHON_MAJOR_VERSION}.2-3
-RUN apt-get install -y --no-install-recommends python3-pip=20.3.4-4
+RUN apt-get install -y --no-install-recommends python3-pip=20.3.4-4+deb11u1
 RUN pip3 install --no-cache-dir setuptools==60.8.2
 RUN pip3 install --no-cache-dir awscli==${AWS_CLI_VERSION}
 
@@ -39,10 +39,11 @@ LABEL maintainer="bgauduch@github"
 ARG PYTHON_MAJOR_VERSION
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
-    ca-certificates=20210119\
-    git=1:2.30.2-1 \
-    jq=1.6-2.1 \
-    python3=${PYTHON_MAJOR_VERSION}.2-3 \
+  ca-certificates=20210119\
+  git=1:2.30.2-1 \
+  jq=1.6-2.1 \
+  python3=${PYTHON_MAJOR_VERSION}.2-3 \
+  neovim=0.4.4-1 \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* \
   && update-alternatives --install /usr/bin/python python /usr/bin/python${PYTHON_MAJOR_VERSION} 1

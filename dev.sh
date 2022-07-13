@@ -10,7 +10,7 @@ set -eo pipefail
 [[ -n $2 ]] && TF_VERSION=$2 || TF_VERSION=$(jq -r '.tf_version | sort | .[-1]' supported_versions.json)
 
 # Set image name and tag (dev if not specified)
-IMAGE_NAME="zenika/terraform-aws-cli"
+IMAGE_NAME="cr0nus/aws-box"
 [[ -n $3 ]] && IMAGE_TAG=$3 || IMAGE_TAG="dev"
 
 # Lint Dockerfile

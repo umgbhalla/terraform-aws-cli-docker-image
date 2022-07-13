@@ -3,7 +3,7 @@ schemaVersion: "2.0.0"
 metadataTest:
   labels:
     - key: "maintainer"
-      value: "bgauduch@github"
+      value: "umgbhalla@github"
   cmd: ["bash"]
   workdir: "/workspace"
 
